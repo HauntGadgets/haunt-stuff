@@ -32,7 +32,7 @@ int outPressCount = 0;       // Counter for the number of times the out button i
 
 void setDigit(int display, int val) {
     // If the first digit is zero and it's the first digit of a score, skip displaying it
-    if (display == 0 && val == 0) {
+    if ((display == 0 || display == 3) && val == 0) { // Check for both home and away teams
         for (int i = 0; i < NUM_LEDS_PER_DIGIT; i++) {
             leds[display * NUM_LEDS_PER_DIGIT + i] = CRGB::Black;
         }
@@ -44,6 +44,8 @@ void setDigit(int display, int val) {
         }
     }
 }
+
+
 
 void setup() {
     Serial.begin(115200); // Initialize Serial communication
