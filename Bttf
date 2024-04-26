@@ -1,0 +1,30 @@
+#include <TM1637Display.h>
+
+// Define the connections pins for each display:
+#define CLK1 2
+#define DIO1 5
+#define CLK2 3
+#define DIO2 6
+#define CLK3 4
+#define DIO3 7
+
+// Create display objects for each display
+TM1637Display display1(CLK1, DIO1);
+TM1637Display display2(CLK2, DIO2);
+TM1637Display display3(CLK3, DIO3);
+
+void setup() {
+  // Set the brightness of each display
+  display1.setBrightness(0x0f); // 0x0f is full brightness, range is 0x00 to 0x0f
+  display2.setBrightness(0x0f);
+  display3.setBrightness(0x0f);
+  
+  // Display specific numbers on each display
+  display1.showNumberDec(1955, false); // 'false' means no leading zeros
+  display2.showNumberDec(1985, false);
+  display3.showNumberDec(2004, false);
+}
+
+void loop() {
+  // Nothing to do here
+}
